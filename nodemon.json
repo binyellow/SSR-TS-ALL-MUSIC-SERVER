@@ -1,0 +1,9 @@
+{
+  "signal": "SIGHUP",
+  "ignore": [
+    ".git",
+    "*.json",
+    "db/",
+    "node_modules/"
+  ]
+}
