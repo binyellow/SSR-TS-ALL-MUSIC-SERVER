@@ -1,18 +1,15 @@
 import Koa from "koa";
 import axios from "axios";
 import querystring from 'querystring';
+import cors from 'koa2-cors';
+import router from './routers/index';
 import dbInit from './db/init';
 
 const app = new Koa();
-dbInit('replace');
+dbInit('');
 
-app.use(async ctx => {
-  try {
-    ctx.body = 1;
-  } catch (err) {
-    console.error(err);
-  }
-});
+app.use(cors());
+app.use(router.routes()).use(router.allowedMethods());
 
-app.listen(3000, () => console.log(3000));
+app.listen(9002, () => console.log(9002));
 
